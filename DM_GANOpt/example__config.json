@@ -1,0 +1,13 @@
+{
+	"scalar_inp": ["system_size", "seed_density", "prob_sq_seed", "angle_bias_sq", "angle_bias_tri"],
+	"scalar_out": ["vel_sa"],
+	"goal": "vel_sa",
+	"inp_ranges": {
+                        "system_size": [200, 1600],
+                        "seed_density": [0.0, 1.0],
+                        "prob_sq_seed": [0.0, 1.0],
+                        "angle_bias_sq": [-45.0, 45.0],
+                        "angle_bias_tri": [-30.0, 30.0]
+		},
+	"inequalities": []
+}

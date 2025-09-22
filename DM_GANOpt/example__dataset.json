@@ -1,0 +1,39 @@
+{
+	"proposed": [
+		],
+	"incomplete": [
+		],
+	"complete": [
+			{
+				"uuid": "00000000-0000-0000-0000-000000000000",
+				"status": "C",
+				"model_inputs": { "system_size": 1000, "seed_density": 0.01, "prob_sq_seed": 0.5, "angle_bias_sq": 0.0, "angle_bias_tri": 0.0},
+				"model_outputs": { "vel_sa": 40000 },
+				"actuals": [
+						{
+							"index": 0,
+							"inputs": { "system_size": 1000, "seed_density": 0.01, "prob_sq_seed": 0.5, "angle_bias_sq": 0.0, "angle_bias_tri": 0.0},					
+							"outputs": { "vel_sa": 40001 }
+						}
+					]
+			},
+			{
+				"uuid": "00000000-0000-0000-0000-000000000001",
+				"status": "C",
+				"model_inputs": { "system_size": 1100, "seed_density": 0.01, "prob_sq_seed": 0.5, "angle_bias_sq": 0.0, "angle_bias_tri": 0.0},
+				"model_outputs": {},
+				"actuals": [
+						{
+							"index": 0,
+							"inputs": { "system_size": 1100, "seed_density": 0.01, "prob_sq_seed": 0.5, "angle_bias_sq": 0.0, "angle_bias_tri": 0.0},
+							"outputs": { "vel_sa": 35000 }
+						},
+						{
+							"index": 1,
+							"inputs": { "system_size": 1100, "seed_density": 0.01, "prob_sq_seed": 0.5, "angle_bias_sq": 0.0, "angle_bias_tri": 0.0},
+							"outputs": { "vel_sa": 23000 }
+						}
+					]
+			}
+		]
+}

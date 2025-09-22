@@ -1,0 +1,25 @@
+{
+    "latent_dim": 100,
+    "base_channels": 64,
+    "sigmoid_scale": 3,
+    "lr_g": 0.0001,
+    "lr_d": 0.00005,
+    "epochs": 1,
+    "betas": [
+        0.5,
+        0.999
+    ],
+    "output_shape": [
+        32, 32, 32
+    ],
+    "batch_size": 16,
+    "target_occupancy": 0.5,
+    "alpha_ove": 50.0,
+    "resintrap_weight": 100.0,
+    "occupancy_weight":100.0,
+    "max_surface_penalty": 10,
+    "resintrap_voxelwise_loss_weight":25,
+    "alpha_cc": 1.0,
+    "warmup_epochs": 0,
+    "save_interval": 1
+}

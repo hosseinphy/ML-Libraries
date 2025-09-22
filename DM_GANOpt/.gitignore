@@ -1,0 +1,26 @@
+# --- python build & cache ---
+__pycache__
+
+
+# --- virtualenv / tooling ---
+.env
+.venv
+*.log
+
+# --- ignore generated voxels ---
+instances/
+
+
+# If you archive STL or voxel files anywhere else
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.npy
+*.stl
+
+# Model weights
+*.pth
+*.pt
+
+
+

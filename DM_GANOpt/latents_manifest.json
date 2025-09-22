@@ -1,0 +1,74 @@
+{
+  "created_at": "2025-09-19T19:46:33Z",
+  "latent_dim": 100,
+  "count": 16,
+  "checkpoint": "/home/hossein/Documents/Projects/DM_GANOpt/GAN_model/results_tl_tune_config/tl_checkpoint.pth",
+  "checkpoint_sha256": "f22723feda015b0a8d51f0b9b414b643ca7eee968a094445bfceab5d76b3eda5",
+  "items": [
+    {
+      "index": 0,
+      "latent_path": "latents/fake_voxel_batch_0.latent.npy"
+    },
+    {
+      "index": 1,
+      "latent_path": "latents/fake_voxel_batch_1.latent.npy"
+    },
+    {
+      "index": 2,
+      "latent_path": "latents/fake_voxel_batch_2.latent.npy"
+    },
+    {
+      "index": 3,
+      "latent_path": "latents/fake_voxel_batch_3.latent.npy"
+    },
+    {
+      "index": 4,
+      "latent_path": "latents/fake_voxel_batch_4.latent.npy"
+    },
+    {
+      "index": 5,
+      "latent_path": "latents/fake_voxel_batch_5.latent.npy"
+    },
+    {
+      "index": 6,
+      "latent_path": "latents/fake_voxel_batch_6.latent.npy"
+    },
+    {
+      "index": 7,
+      "latent_path": "latents/fake_voxel_batch_7.latent.npy"
+    },
+    {
+      "index": 8,
+      "latent_path": "latents/fake_voxel_batch_8.latent.npy"
+    },
+    {
+      "index": 9,
+      "latent_path": "latents/fake_voxel_batch_9.latent.npy"
+    },
+    {
+      "index": 10,
+      "latent_path": "latents/fake_voxel_batch_10.latent.npy"
+    },
+    {
+      "index": 11,
+      "latent_path": "latents/fake_voxel_batch_11.latent.npy"
+    },
+    {
+      "index": 12,
+      "latent_path": "latents/fake_voxel_batch_12.latent.npy"
+    },
+    {
+      "index": 13,
+      "latent_path": "latents/fake_voxel_batch_13.latent.npy"
+    },
+    {
+      "index": 14,
+      "latent_path": "latents/fake_voxel_batch_14.latent.npy"
+    },
+    {
+      "index": 15,
+      "latent_path": "latents/fake_voxel_batch_15.latent.npy"
+    }
+  ],
+  "note": "Latents saved by index; rename/bind to exp_uuid after server returns uuids."
+}

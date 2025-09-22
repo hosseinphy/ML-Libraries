@@ -1,0 +1,89 @@
+#-- CCUS project --#
+# Objective: Develop a GAN model to create relastic and printible structures for Carbon Capture
+# Logtime Date: June 13, 8:40 AM  
+ 
+ ## Baseline model: only GAN model
+
+ ## Baseline + Occupancy
+
+ ## Baseline + Occupancy + Overhang
+
+ Changes that I have made:
+ *************************************************************************************************
+ First try (results and hyperparamter_beta)
+**************************************************************************************************
+
+* Assessor: 
+    -   Replaced your current unsupported calculation with a nonlinear function, 
+        """
+        steepness = 30.0
+        unsupported = curr * torch.sigmoid(-steepness * (support_ratio - 0.3))
+        """
+        with threshold 0.1 insread of 0.3, increase steepness 50 instead of 30
+        I also created a margin value to aggressively penelize unsupported structures in the Z direction: se below
+        ###################################
+        Some voxels have just enough fractional support (e.g., 0.31) to avoid being classified as unsupported, but in reality, they are not physically printable (i.e., they’re still overhanging with minimal base support).
+        ✅ Solution: Add Margin to the Threshold
+
+        By masking more aggressively, you’re saying:
+
+            “Even if support is a bit over the threshold, treat it as unsafe unless it's clearly supported.”
+
+        Example:
+
+        # Original
+        unsupported = curr * (support_ratio < 0.3).float()
+
+        # More aggressive (penalize anything < 0.35 instead of 0.3)
+        margin = 0.05
+        unsupported = curr * ((support_ratio + margin) < 0.3).float()
+
+        You’re effectively shifting the safety threshold—requiring slightly more base support to be considered printable.
+        🔧 Alternative (Soft version using sigmoid):
+
+        unsupported = curr * torch.sigmoid(steepness * (threshold - support_ratio - margin))
+
+            This softens the penalty but still pushes the model to avoid borderline cases.
+
+            margin = 0.05 or 0.1 is a good starting point.
+
+        📈 Benefit:
+
+        This leads to:
+
+            Fewer barely-supported overhangs.
+
+            More robustly attached voxels.
+
+            Improved printability, especially at interfaces or thin ledges.
+
+        ####################################
+* Hyper-paramters:
+{
+    "latent_dim": 100,
+    "base_channels": 64,
+    "sigmoid_scale": 3,
+    "lr_g": 0.0001,
+    "lr_d": 0.00005,
+    "epochs": 20000,
+    "betas": [
+        0.5,
+        0.999
+    ],
+    "batch_size": 16,
+    "alpha_ove": 7.0,
+    "alpha_sur": 0.0,
+    "alpha_spt": 0.0,
+    "alpha_iso": 0.0,
+    "surface_score_max": 0.0,
+    "resintrap_weight": 0.0,
+    "occupancy_weight":100.0,
+    "warmup_epochs": 15000
+}
+
+
+
+ *************************************************************************************************
+ Second try (results and hyperparamter_gamma)
+**************************************************************************************************
+Everything similar to the _beta version but using no warm up for the overhang score and run it for longer
