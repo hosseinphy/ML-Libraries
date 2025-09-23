@@ -15,8 +15,8 @@ matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Button, Slider
 
-from GAN_model.issues import overhangs
-from GAN_model.issues import islands
+from  . import overhangs
+from . import islands
 from . import resin_traps
 from . import utils
 
@@ -32,6 +32,7 @@ def draw_issues(fname):
     rts, n_rts = resin_traps.get_resin_trap_mask(grid)
     ohs, n_ohs = overhangs.get_overhang_mask(grid)
 
+  
     print("Number of Islands:", n_ils)
     print("Number of Overhangs:", n_ohs)
     print("Number of Resin Traps:", n_rts)

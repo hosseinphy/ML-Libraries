@@ -17,6 +17,6 @@ if __name__=="__main__":
     # voxel_name = sys.argv[1] if sys.argv[1] else "voxel.npy"
     instance_uuid, voxel_name = process_cmdline()
     gm = GANManager()
-    # gm.generate_structure(instance_uuid)
-    gm.generator_draw_issues(f"instances/{instance_uuid}/{voxel_name}")
+    gm.generate_structure(instance_uuid)
+    # gm.generator_draw_issues(f"instances/{instance_uuid}/{voxel_name}")
 

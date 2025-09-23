@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 import sys
 from matplotlib.widgets import Slider
 
+# from .functions import utils
+
 # 6-connectivity directions (no corners/edges)
 DIRECTIONS = [
     (0, 0, -1), (0, 0, 1),
@@ -123,8 +125,8 @@ def plot_voxel_with_resin_traps(voxel_np, trap_mask_np, title="Voxel with Resin 
 
 
 if __name__ == "__main__":
-    import utils
-
+    
+    
     # 10×10×10 solid cube with internal voids
     # voxel = np.ones((10, 10, 10), dtype=np.uint8)
     # voxel[2, 2, 2] = 0
@@ -136,6 +138,8 @@ if __name__ == "__main__":
     voxel = np.load(voxel_file)
 
     resin_mask, _ = get_resin_trap_mask(voxel)
+
+    print(resin_mask.shape)
 
 
     print("Number of resin trap voxels:", np.sum(resin_mask))

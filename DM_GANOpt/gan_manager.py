@@ -41,7 +41,7 @@ class GANManager:
         print("Working directory:", workdir)
 
         # 1) Generate voxels into CWD
-        voxel_generator()  # your version writes fake_voxel_batch_{i}.npy + latents/...
+        # voxel_generator()  # your version writes fake_voxel_batch_{i}.npy + latents/...
 
         # 2) Repair voxels in CWD
         remove_issues(workdir)

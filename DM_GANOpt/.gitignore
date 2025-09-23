@@ -17,6 +17,9 @@ instances/
 *.tar.xz
 *.npy
 *.stl
+*.vtp
+*.png
+
 
 # Model weights
 *.pth
