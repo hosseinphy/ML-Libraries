@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
     resin_mask, _ = get_resin_trap_mask(voxel)
 
-    print(resin_mask.shape)
+    # print(resin_mask.shape)
 
 
     print("Number of resin trap voxels:", np.sum(resin_mask))

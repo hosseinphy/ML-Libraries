@@ -188,20 +188,22 @@ def remove_issues(outdir):
             n_ohs = overhangs.count_overhang_pts(grid)
             grid = support_overhangs(grid, ohs_pts)
 
-            # # New, trap-safe neck breaking
-            # grid = break_thin_void_necks_no_traps(grid.astype(np.uint8), min_width_vox=2)
-            occ_before = (grid>0).mean()
+            # # --- Sanity check ---
+            # # # New, trap-safe neck breaking
+            # # grid = break_thin_void_necks_no_traps(grid.astype(np.uint8), min_width_vox=2)
+            # occ_before = (grid>0).mean()
             
-            rts, nrts = resin_traps.get_resin_trap_mask(grid)
+            # rts, nrts = resin_traps.get_resin_trap_mask(grid)
             
-            print(f"number of resin traps, including the first slice, BEFORE resolving tiny necks: {nrts}")
-            print(f"number of overhang Before removing necks: {n_ohs}")
-            print(f"number of islands Before removing necks: {n_ils}")
+            # print(f"number of resin traps, including the first slice, BEFORE resolving tiny necks: {nrts}")
+            # print(f"number of overhang Before removing necks: {n_ohs}")
+            # print(f"number of islands Before removing necks: {n_ils}")
 
-            # --- Seal *internal* micro-channels only ---
-            grid = seal_internal_void_necks_minimal(grid, min_width_vox=1, verify_articulation=True, window=2)
-            occ_after  = (grid>0).mean()
-            print("Δ solid occupancy:", occ_after - occ_before)
+            # # --- Seal *internal* micro-channels only ---
+            # grid = seal_internal_void_necks_minimal(grid, min_width_vox=1, verify_articulation=True, window=2)
+            
+            # occ_after  = (grid>0).mean()
+            # print("Δ solid occupancy:", occ_after - occ_before)
 
 
             # Repair resin traps by filling in holes

@@ -1,5 +1,18 @@
 import numpy as np
 import trimesh
+import re
+from pathlib import Path
+
+def delete_regex(folder, pattern, recursive=False, dry_run=True):
+    rx = re.compile(pattern)
+    base = Path(folder)
+    it = base.rglob("*") if recursive else base.glob("*")
+    for p in it:
+        if p.is_file() and rx.search(p.name):
+            print(f"{'[DRY] ' if dry_run else ''}{p}")
+            if not dry_run:
+                p.unlink()
+
 
 
 def add_frame(grid, width=1):
@@ -23,6 +36,11 @@ def add_frame(grid, width=1):
 def remove_frame(grid):
     return grid[1:-1, 1:-1, 1:-1]
 
+
+# -------------------------------
+# Mesh post-filter: keep only components
+# that touch the simulation box boundary.
+# -------------------------------
 
 
 def _touches_boundary(m: trimesh.Trimesh, dims_xyz, scale, eps=1e-6):

@@ -12,7 +12,7 @@
     "output_shape": [
         32, 32, 32
     ],
-    "batch_size": 16,
+    "batch_size": 4,
     "target_occupancy": 0.5,
     "alpha_ove": 50.0,
     "resintrap_weight": 100.0,

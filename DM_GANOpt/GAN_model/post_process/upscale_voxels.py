@@ -60,8 +60,27 @@ def create_upscaled_voxel(file_dir):
     file_dir = Path("./").resolve() #Path(file_dir).resolve()
     # file_dir = Path(file_dir).resolve()
 
-    for file in file_dir.glob("repaired_ohs_*.npy"):
-        match = re.search(r"repaired_ohs_(\d+)\.npy", file.name)  # single underscore
+    # for file in file_dir.glob("repaired_ohs_*.npy"):
+    #     match = re.search(r"repaired_ohs_(\d+)\.npy", file.name)  # single underscore
+
+    pattern_1  = ["repaired_ohs_*.npy"]
+    pattern_2 = ["fake_voxel_batch_*.npy"]
+    
+    files_1 = [p for pat in pattern_1 for p in file_dir.glob(pat) ]
+    files_2 = [p for pat in pattern_2 for p in file_dir.glob(pat) ]
+    
+    if files_1:
+        pattern = pattern_1[0]
+        re_pattern = r"repaired_ohs_(\d+)\.npy"  
+    elif files_2:
+        pattern = pattern_2[0]
+        re_pattern = r"fake_voxel_batch_(\d+)\.npy"
+    else:
+        raise ValueError("The expected files not found.")
+    
+    #for file in file_dir.glob('fake_voxel_batch_*.npy'):
+    for file in file_dir.glob(pattern):
+        match = re.search(re_pattern, file.name)
         if match:
             iteration = int(match.group(1))
 
